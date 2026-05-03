@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniela Garofalo</title>
+  <meta name="description" content="I work with founders and professionals who feel something is not working in their team or relationships, but can't clearly see why.">
+  <meta name="keywords" content="team not performing, founder team dynamics, employee underperformance, relational misalignment, team communication issues">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #166534;
+      --green-light: #dcfce7;
+      --green-dark: #14532d;
+      --bg: #f0ede8;
+      --white: #ffffff;
+      --text: #111111;
+      --muted: #666666;
+      --border: #d8d4cc;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    nav ul { display: flex; gap: 1.5rem; list-style: none; }
+    nav ul a {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: var(--text); }
+
+    /* PAGE */
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 74px 2rem 4rem;
+    }
+
+    /* DIVIDER */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 0.4rem 0 1.2rem;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .divider span {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* CARD BASE */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .card-label {
+      font-size: 0.67rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 1.5rem;
+    }
+
+    .card h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      line-height: 1.35;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 0.6rem;
+    }
+
+    /* HERO */
+    .hero {
+      background: #fdfffe;
+      border: 1px solid #eaf4ee;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.6rem, 2.8vw, 2.3rem);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      max-width: 26ch;
+    }
+
+    .hero .sub {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 54ch;
+      margin-bottom: 2rem;
+    }
+
+    /* BUTTON */
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.5rem;
+      background: var(--green);
+      color: white;
+      font-size: 0.78rem;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: var(--green-dark); }
+
+    /* PROBLEM GRID — each item amber border */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .problem-item {
+      background: var(--white);
+      border: 1px solid #fcd34d;
+      border-left: 3px solid #d97706;
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+    }
+
+    .problem-item strong {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: var(--text);
+    }
+
+    .problem-item span {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* CARD VARIANTS */
+    .card-grey {
+      border-color: #d1d5db;
+      border-left: 4px solid #9ca3af;
+    }
+
+    .card-green-border {
+      border-color: #bbf7d0;
+      border-left: 4px solid var(--green);
+    }
+
+    /* NUMBERED CARD */
+    .numbered-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 1.2rem;
+    }
+
+    .numbered-card-green { border-left: 4px solid var(--green); }
+    .numbered-card-amber { border-left: 4px solid #d97706; }
+
+    .numbered-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    .num {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-size: 0.7rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .num-amber {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .numbered-header h3 {
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    .numbered-body {
+      padding: 2rem;
+    }
+
+    /* WORKFLOW */
+    .workflow {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .workflow-step {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      position: relative;
+    }
+
+    .workflow-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 12px;
+      top: 26px;
+      bottom: -16px;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .workflow-dot {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.68rem;
+      font-weight: 600;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+      z-index: 1;
+    }
+
+    .dot-green  { background: #dcfce7; color: #14532d; }
+    .dot-amber  { background: #fef3c7; color: #92400e; }
+    .dot-blue   { background: #e0f2fe; color: #0369a1; }
+
+    .workflow-content {
+      padding-bottom: 2rem;
+      flex: 1;
+    }
+
+    .workflow-step:last-child .workflow-content {
+      padding-bottom: 0;
+    }
+
+    .workflow-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .workflow-content p {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* SERVICE */
+    .service-item {
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .service-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .service-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.7rem;
+    }
+
+    .service-item h3 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .price-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      background: var(--green-light);
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .service-item p {
+      font-size: 0.87rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 0.6rem;
+    }
+
+    .scope-note {
+      font-size: 0.65rem;
+      color: #c0bdb8;
+      line-height: 1.4;
+      margin-bottom: 0.8rem;
+      font-style: italic;
+      transform: scale(0.75);
+      transform-origin: left;
+      display: block;
+    }
+
+    .what-you-get-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .what-you-get-list li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .what-you-get-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-size: 0.75rem;
+      top: 0.05rem;
+    }
+
+    /* FOOTER */
+    footer {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem 3rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.73rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 640px) {
+      .page { padding: 66px 1rem 3rem; }
+      .problem-grid { grid-template-columns: 1fr; }
+      .service-header { flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page">
+
+    <!-- HERO -->
+    <div class="card hero">
+      <p class="card-label">Individual & Relational Structure</p>
+      <h1>You don't see the structure<br>you're part of.<br>I do.</h1>
+      <p class="sub">Something isn't working — in your team, your relationships, your interactions. You see the effects. Not what's creating them.</p>
+      <a href="https://calendly.com/daniela-garofalo1994/30min" class="btn" target="_blank">Book a session</a>
+    </div>
+
+    <div class="divider"><span>What you might recognize</span></div>
+
+    <!-- PROBLEM GRID — each item amber border -->
+    <div class="problem-grid">
+      <div class="problem-item">
+        <strong>Things stall</strong>
+        <span>Work doesn't move forward, despite effort</span>
+      </div>
+      <div class="problem-item">
+        <strong>You carry too much</strong>
+        <span>Responsibility keeps falling back on you</span>
+      </div>
+      <div class="problem-item">
+        <strong>Communication breaks</strong>
+        <span>Things are said, but don't land</span>
+      </div>
+      <div class="problem-item">
+        <strong>It "works" on paper</strong>
+        <span>But in reality, it doesn't</span>
+      </div>
+    </div>
+
+    <div class="divider"><span>What's actually going on</span></div>
+
+    <!-- WHAT'S GOING ON — grey border -->
+    <div class="card card-grey">
+      <h2>Most problems are not about competence or intention.</h2>
+      <p>They come from how people are positioned — and how they respond to each other.</p>
+    </div>
+
+    <div class="divider"><span>What you get</span></div>
+
+    <!-- WHAT YOU GET — green border -->
+    <div class="card card-green-border">
+      <h2>You see what is actually happening — not what you think is happening.</h2>
+      <ul class="what-you-get-list">
+        <li>where things break</li>
+        <li>how you are part of it</li>
+        <li>what is maintaining the current dynamic</li>
+        <li>how the structure actually works</li>
+        <li>where it can shift</li>
+      </ul>
+    </div>
+
+    <div class="divider"><span>How it works</span></div>
+
+    <!-- WORKFLOW -->
+    <div class="numbered-card numbered-card-green">
+      <div class="numbered-header">
+        <span class="num">01</span>
+        <h3>The process</h3>
+      </div>
+      <div class="numbered-body">
+        <div class="workflow">
+          <div class="workflow-step">
+            <span class="workflow-dot dot-green">1</span>
+            <div class="workflow-content">
+              <p class="workflow-title">We talk</p>
+              <p>You bring a situation, a person, or something that isn't working.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <span class="workflow-dot dot-amber">2</span>
+            <div class="workflow-content">
+              <p class="workflow-title">I listen</p>
+              <p>I stop on what doesn't match — between what is said, how it's said, and what actually happens.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <span class="workflow-dot dot-blue">3</span>
+            <div class="workflow-content">
+              <p class="workflow-title">I give it back</p>
+              <p>I give you the structure of what is happening — something you can recognize or reject.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <span class="workflow-dot dot-green">4</span>
+            <div class="workflow-content">
+              <p class="workflow-title">You decide</p>
+              <p>What to do with it. No follow-up required. No commitment beyond the session.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"><span>Work with me</span></div>
+
+    <!-- SERVICES -->
+    <div class="numbered-card" id="services">
+      <div class="numbered-header">
+        <span class="num num-amber">02</span>
+        <h3>Work with me</h3>
+      </div>
+      <div class="numbered-body">
+
+        <div class="service-item">
+          <div class="service-header">
+            <h3>Individual Structure</h3>
+            <span class="price-tag">45 min · €150</span>
+          </div>
+          <p>A focused analysis of how you are positioned and acting within a specific situation.</p>
+          <p>You leave with a clear understanding of your role in the dynamic, and what is actually happening.</p>
+          <a href="https://calendly.com/daniela-garofalo1994/30min" class="btn" target="_blank" id="contact">Book individual session</a>
+        </div>
+
+        <div class="service-item">
+          <div class="service-header">
+            <h3>Relational Structure</h3>
+            <span class="price-tag">€750 – €1200</span>
+          </div>
+          <p>A structured analysis of how two or more people function together.</p>
+          <p>Includes key dynamics, tension points and conditions for it to work, with a written output.</p>
+          <p class="scope-note">Based on number of people and scope. Defined before starting.</p>
+          <a href="https://calendly.com/daniela-garofalo1994/relational-structure" class="btn" target="_blank">Request relational session</a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <footer></footer>
+
+</body>
+</html>
