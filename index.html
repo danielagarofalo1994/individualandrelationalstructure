@@ -4,20 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daniela Garofalo</title>
-  <meta name="description" content="I work with founders and professionals who feel something is not working in their team or relationships, but can't clearly see why.">
-  <meta name="keywords" content="team not performing, founder team dynamics, employee underperformance, relational misalignment, team communication issues">
+  <meta name="description" content="A precise reading of how you and your people are positioned inside a system — and where the structure is generating the behavior you're trying to fix.">
+  <meta name="keywords" content="team not performing, founder team dynamics, employee underperformance, relational misalignment, team communication issues, communication that doesn't land, carrying the team alone">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --green: #166534;
-      --green-light: #dcfce7;
-      --green-dark: #14532d;
-      --bg: #f0ede8;
+      --green: #22332b;
+      --green-mid: #2d4a3a;
+      --green-light: #c8ddd2;
+      --green-dark: #1a2821;
+      --green-border: #6a9a7e;
+      --green-soft: #f0f5f2;
+      --bg: #f2f2f0;
       --white: #ffffff;
-      --text: #111111;
-      --muted: #666666;
-      --border: #d8d4cc;
+      --text: #1a1c1e;
+      --muted: #6b7280;
+      --border: #c8c8c4;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,59 +35,39 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: var(--bg);
+      background: rgba(242,242,240,0.98);
       border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
+      padding: 0 calc((100% - 960px) / 2 + 2rem);
       height: 50px;
       display: flex;
       align-items: center;
       justify-content: flex-end;
+      backdrop-filter: blur(8px);
     }
 
     nav ul { display: flex; gap: 1.5rem; list-style: none; }
-    nav ul a {
-      font-size: 0.75rem;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    nav ul a { font-size: 0.75rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     nav ul a:hover { color: var(--text); }
 
-    /* PAGE */
     .page {
       max-width: 960px;
       margin: 0 auto;
       padding: 74px 2rem 4rem;
     }
 
-    /* DIVIDER */
     .divider {
       display: flex;
       align-items: center;
       gap: 1rem;
       margin: 0.4rem 0 1.2rem;
     }
-    .divider::before, .divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-    .divider span {
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      white-space: nowrap;
-    }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .divider span { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
 
-    /* CARD BASE */
     .card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -102,24 +85,11 @@
       margin-bottom: 1.5rem;
     }
 
-    .card h2 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.8rem;
-      line-height: 1.35;
-    }
-
-    .card p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.75;
-      margin-bottom: 0.6rem;
-    }
-
     /* HERO */
     .hero {
-      background: #fdfffe;
-      border: 1px solid #eaf4ee;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--green);
     }
 
     .hero h1 {
@@ -127,19 +97,26 @@
       font-weight: 600;
       line-height: 1.2;
       letter-spacing: -0.02em;
-      margin-bottom: 1rem;
-      max-width: 26ch;
+      margin-bottom: 0.6rem;
+      max-width: 30ch;
+    }
+
+    .hero .hook {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--green-dark);
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
     }
 
     .hero .sub {
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: var(--muted);
-      line-height: 1.7;
-      max-width: 54ch;
+      line-height: 1.75;
+      max-width: 58ch;
       margin-bottom: 2rem;
     }
 
-    /* BUTTON */
     .btn {
       display: inline-block;
       padding: 0.7rem 1.5rem;
@@ -153,8 +130,22 @@
     }
     .btn:hover { background: var(--green-dark); }
 
-    /* PROBLEM GRID — each item amber border */
-    .problem-grid {
+    .btn-outline {
+      display: inline-block;
+      padding: 0.7rem 1.5rem;
+      background: transparent;
+      color: var(--green);
+      border: 1px solid var(--green);
+      font-size: 0.78rem;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { background: var(--green); color: white; }
+
+    /* RECOGNIZE GRID */
+    .recognize-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0.8rem;
@@ -165,15 +156,15 @@
       margin-bottom: 1.2rem;
     }
 
-    .problem-item {
+    .recognize-item {
       background: var(--white);
-      border: 1px solid #fcd34d;
-      border-left: 3px solid #d97706;
+      border: 1px solid var(--green-border);
+      border-left: 3px solid var(--green-mid);
       border-radius: 8px;
       padding: 1rem 1.2rem;
     }
 
-    .problem-item strong {
+    .recognize-item strong {
       display: block;
       font-size: 0.88rem;
       font-weight: 600;
@@ -181,24 +172,31 @@
       color: var(--text);
     }
 
-    .problem-item span {
+    .recognize-item span {
       font-size: 0.82rem;
       color: var(--muted);
       line-height: 1.5;
     }
 
-    /* CARD VARIANTS */
-    .card-grey {
-      border-color: #d1d5db;
-      border-left: 4px solid #9ca3af;
+    .card h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      line-height: 1.35;
     }
 
-    .card-green-border {
-      border-color: #bbf7d0;
-      border-left: 4px solid var(--green);
+    .card p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 0.6rem;
     }
 
-    /* NUMBERED CARD */
+    .card-green { border-color: var(--green-border); border-left: 4px solid var(--green); }
+    .card-grey { border-color: var(--border); border-left: 4px solid var(--green); }
+
+    /* NUMBERED */
     .numbered-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -208,7 +206,6 @@
     }
 
     .numbered-card-green { border-left: 4px solid var(--green); }
-    .numbered-card-amber { border-left: 4px solid #d97706; }
 
     .numbered-header {
       display: flex;
@@ -232,26 +229,11 @@
       flex-shrink: 0;
     }
 
-    .num-amber {
-      background: #fef3c7;
-      color: #92400e;
-    }
-
-    .numbered-header h3 {
-      font-size: 0.88rem;
-      font-weight: 500;
-    }
-
-    .numbered-body {
-      padding: 2rem;
-    }
+    .numbered-header h3 { font-size: 0.88rem; font-weight: 500; }
+    .numbered-body { padding: 2rem; }
 
     /* WORKFLOW */
-    .workflow {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
+    .workflow { display: flex; flex-direction: column; gap: 0; }
 
     .workflow-step {
       display: flex;
@@ -267,61 +249,36 @@
       top: 26px;
       bottom: -16px;
       width: 1px;
-      background: var(--border);
+      background: var(--green-border);
     }
 
     .workflow-dot {
       width: 26px; height: 26px;
       border-radius: 50%;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-size: 0.68rem;
+      font-weight: 600;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.68rem;
-      font-weight: 600;
       flex-shrink: 0;
       margin-top: 0.1rem;
       z-index: 1;
     }
 
-    .dot-green  { background: #dcfce7; color: #14532d; }
-    .dot-amber  { background: #fef3c7; color: #92400e; }
-    .dot-blue   { background: #e0f2fe; color: #0369a1; }
+    .workflow-content { padding-bottom: 2rem; flex: 1; }
+    .workflow-step:last-child .workflow-content { padding-bottom: 0; }
+    .workflow-title { font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 0.3rem; }
+    .workflow-content p { font-size: 0.83rem; color: var(--muted); line-height: 1.6; margin: 0; }
 
-    .workflow-content {
-      padding-bottom: 2rem;
-      flex: 1;
-    }
-
-    .workflow-step:last-child .workflow-content {
-      padding-bottom: 0;
-    }
-
-    .workflow-title {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.3rem;
-    }
-
-    .workflow-content p {
-      font-size: 0.83rem;
-      color: var(--muted);
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    /* SERVICE */
+    /* SERVICES */
     .service-item {
-      padding-bottom: 1.5rem;
-      margin-bottom: 1.5rem;
+      padding-bottom: 1.8rem;
+      margin-bottom: 1.8rem;
       border-bottom: 1px solid var(--border);
     }
-
-    .service-item:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-      margin-bottom: 0;
-    }
+    .service-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
 
     .service-header {
       display: flex;
@@ -330,10 +287,7 @@
       margin-bottom: 0.7rem;
     }
 
-    .service-item h3 {
-      font-size: 1rem;
-      font-weight: 600;
-    }
+    .service-item h3 { font-size: 1rem; font-weight: 600; }
 
     .price-tag {
       font-size: 0.72rem;
@@ -345,12 +299,7 @@
       white-space: nowrap;
     }
 
-    .service-item p {
-      font-size: 0.87rem;
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 0.6rem;
-    }
+    .service-item p { font-size: 0.87rem; color: var(--muted); line-height: 1.7; margin-bottom: 0.6rem; }
 
     .scope-note {
       font-size: 0.65rem;
@@ -363,7 +312,7 @@
       display: block;
     }
 
-    .what-you-get-list {
+    .what-list {
       list-style: none;
       display: flex;
       flex-direction: column;
@@ -371,7 +320,7 @@
       margin-top: 0.5rem;
     }
 
-    .what-you-get-list li {
+    .what-list li {
       font-size: 0.9rem;
       color: var(--muted);
       line-height: 1.6;
@@ -379,7 +328,7 @@
       position: relative;
     }
 
-    .what-you-get-list li::before {
+    .what-list li::before {
       content: '→';
       position: absolute;
       left: 0;
@@ -388,84 +337,136 @@
       top: 0.05rem;
     }
 
+    /* VERDICT */
+    .verdict {
+      background: var(--green-dark);
+      border: 1px solid var(--green-dark);
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .verdict p {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+    }
+
+    .verdict p:last-child { margin-bottom: 0; }
+
     /* FOOTER */
     footer {
       max-width: 960px;
       margin: 0 auto;
-      padding: 1.5rem 2rem 3rem;
+      padding: 2.5rem 2rem 3rem;
       border-top: 1px solid var(--border);
-      text-align: center;
+      font-family: 'Inter', -apple-system, sans-serif;
     }
 
-    footer p {
-      font-size: 0.73rem;
-      color: var(--muted);
+    footer .about {
+      font-size: 0.85rem;
+      color: #444;
+      line-height: 1.8;
+      font-style: italic;
+      max-width: 65ch;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
     }
+
+    footer .meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    footer .meta-left { display: flex; flex-direction: column; gap: 0.2rem; }
+    footer .meta-left span { font-size: 0.75rem; color: #666; }
+    footer .meta-left span.vat { font-size: 0.72rem; color: #999; }
+
+    footer .meta-right { display: flex; gap: 1.5rem; align-items: center; }
+    footer .meta-right a { font-size: 0.75rem; color: #666; text-decoration: none; }
+    footer .meta-right a:hover { color: var(--text); }
 
     @media (max-width: 640px) {
       .page { padding: 66px 1rem 3rem; }
-      .problem-grid { grid-template-columns: 1fr; }
+      .recognize-grid { grid-template-columns: 1fr; }
+      .who-inner-grid { grid-template-columns: 1fr !important; }
+      .who-inner-grid .recognize-item { grid-column: 1 !important; }
       .service-header { flex-direction: column; gap: 0.5rem; }
+      footer .meta { flex-direction: column; align-items: flex-start; }
+      .who-grid { grid-template-columns: 1fr !important; }
     }
   </style>
 </head>
 <body>
+
+  <nav>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
   <div class="page">
 
     <!-- HERO -->
     <div class="card hero">
       <p class="card-label">Individual & Relational Structure</p>
-      <h1>You don't see the structure<br>you're part of.<br>I do.</h1>
-      <p class="sub">
-      Something isn't working — in your team, your relationships, your interactions. 
-      You see the effects, not what's creating them.<br><br>
-      You come here when you can’t clearly see why — even after conversations and effort.
-      </p>
-     <a href="#services" class="btn">See how it works</a>
+      <h1>The system is working perfectly.<br>That's why you're stuck.</h1>
+      <p class="hook">You see the friction. I see the architecture creating it.</p>
+      <p class="sub">When progress stalls or communication breaks, it's not a people problem. It's a system that has learned to protect itself — and every person inside it is behaving exactly as the structure requires.</p>
+      <a href="#services" class="btn">See how it works</a>
     </div>
 
-    <div class="divider"><span>What you might recognize</span></div>
+    <div class="divider"><span>What you recognize</span></div>
 
-    <!-- PROBLEM GRID — each item amber border -->
-    <div class="problem-grid">
-      <div class="problem-item">
-        <strong>Things stall</strong>
-        <span>Progress doesn’t happen, even when you try</span>
+    <!-- RECOGNIZE GRID -->
+    <div class="recognize-grid">
+      <div class="recognize-item">
+        <strong>Productive Stasis</strong>
+        <span>Decisions are seemingly agreed upon but re-opened later because decision rights are implicitly undefined.</span>
       </div>
-      <div class="problem-item">
-        <strong>You carry too much</strong>
-        <span>Responsibility keeps falling back on you</span>
+      <div class="recognize-item">
+        <strong>Defensive Waiting</strong>
+        <span>Taking initiative feels riskier than waiting for validation, so the team reduces its surface area of independent action.</span>
       </div>
-      <div class="problem-item">
-        <strong>Communication breaks</strong>
-        <span>Things are said, but don't land</span>
+      <div class="recognize-item">
+        <strong>Filtered Signals</strong>
+        <span>Information is shaped as it moves upward because unfiltered data carries risk without prior alignment.</span>
       </div>
-      <div class="problem-item">
-        <strong>It "works" on paper</strong>
-        <span>But in reality, it doesn't</span>
+      <div class="recognize-item">
+        <strong>Ownership Shifting</strong>
+        <span>Decision-making shifts away from execution toward parts of the system where context is weakest.</span>
       </div>
     </div>
 
     <div class="divider"><span>What's actually going on</span></div>
 
-    <!-- WHAT'S GOING ON — grey border -->
+    <!-- WHAT'S GOING ON -->
     <div class="card card-grey">
       <h2>Most problems are not about competence or intention.</h2>
-      <p>They come from how people are positioned — and how they respond to each other.</p>
+      <p>When a team is not performing, when communication breaks down at work, when someone capable is not delivering — the instinct is to look at the people. Change the person, clarify expectations, improve communication.</p>
+      <p>But if the structure rewards waiting, filters information upward, or keeps decision-making away from execution, the same patterns will re-emerge regardless of who is in the roles.</p>
+      <p>The friction you see is not a malfunction. It is the system working exactly as it has been built.</p>
     </div>
 
     <div class="divider"><span>What you get</span></div>
 
-    <!-- WHAT YOU GET — grey border -->
-    <div class="card card-grey">
-      <h2>You see what is actually happening — not what you think is happening.</h2>
-      <ul class="what-you-get-list">
-        <li>where things break</li>
-        <li>how you are part of it</li>
-        <li>what is maintaining the current dynamic</li>
-        <li>how the structure actually works</li>
-        <li>where it can shift</li>
+    <!-- WHAT YOU GET -->
+    <div class="card card-green">
+      <h2>A precise reading of the structure — not a diagnosis of the people.</h2>
+      <ul class="what-list">
+        <li>Where decisions are actually being made versus where they appear to be made</li>
+        <li>Where information is being filtered or stopped before reaching the people who need it</li>
+        <li>Which steps are introducing waiting rather than movement</li>
+        <li>Whether the problem is structural or contingent — and what that means for where to intervene</li>
+        <li>What a functional structure would need to look like for these specific people</li>
       </ul>
     </div>
 
@@ -480,35 +481,63 @@
       <div class="numbered-body">
         <div class="workflow">
           <div class="workflow-step">
-            <span class="workflow-dot dot-green">1</span>
+            <span class="workflow-dot">1</span>
             <div class="workflow-content">
-              <p class="workflow-title">You bring something that isn’t working</p>
-              <p>A person, a dynamic, or a situation you’ve already tried to address.</p>
+              <p class="workflow-title">You bring the friction</p>
+              <p>A specific person, partnership, or recurring dynamic you've already tried to address without success.</p>
             </div>
           </div>
           <div class="workflow-step">
-            <span class="workflow-dot dot-green">2</span>
+            <span class="workflow-dot">2</span>
             <div class="workflow-content">
-              <p class="workflow-title">I listen for mismatches</p>
-              <p>Between what is said, how it’s said, and what actually happens.</p>
+              <p class="workflow-title">I map the mismatch</p>
+              <p>Between what is said and what actually happens — reading the gap between declared behavior and what the situation is actually producing.</p>
             </div>
           </div>
           <div class="workflow-step">
-            <span class="workflow-dot dot-green">3</span>
+            <span class="workflow-dot">3</span>
             <div class="workflow-content">
-              <p class="workflow-title">I give it back</p>
-              <p>A clear breakdown of the structure behind the situation, with a written report you can refer back to.</p>
+              <p class="workflow-title">I give you the structure</p>
+              <p>A precise breakdown of what is maintaining the current dynamic — delivered as a written output you can return to, challenge, and use as a reference point.</p>
             </div>
           </div>
           <div class="workflow-step">
-            <span class="workflow-dot dot-green">4</span>
+            <span class="workflow-dot">4</span>
             <div class="workflow-content">
-              <p class="workflow-title">You decide</p>
-              <p>What to do with it — once you see how the situation actually works and what can change.</p>
+              <p class="workflow-title">The constraint becomes visible</p>
+              <p>Once you see where the structure is generating the behavior, you stop addressing symptoms and identify where an intervention would actually have effect.</p>
             </div>
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="divider"><span>Who this is for</span></div>
+
+    <!-- WHO -->
+    <div class="recognize-grid" style="display: block; padding: 1.5rem; margin-bottom: 1.2rem; border-radius: 12px;">
+      <h2 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.8rem; line-height: 1.35;">The stakes are high. The wrong read is expensive.</h2>
+      <p style="font-size: 0.9rem; font-weight: 300; color: var(--muted); line-height: 1.75; margin-bottom: 1.2rem;">This work is most useful when the cost of misreading a person or a dynamic is significant — financially, operationally, or structurally.</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.8rem;" class="who-inner-grid">
+        <div class="recognize-item">
+          <strong>Venture Capital & Business Angels</strong>
+          <span>Deciding whether to back two co-founders. If the relational structure between them is already broken, the investment carries a structural risk no due diligence process currently reads.</span>
+        </div>
+        <div class="recognize-item">
+          <strong>Executive Search & Headhunters</strong>
+          <span>Placing a new C-level into an existing team. The question is not whether the person is capable — it is whether they will function inside the structure they are entering.</span>
+        </div>
+        <div class="recognize-item">
+          <strong>Founders & CEOs</strong>
+          <span>Managing a team where something keeps not working — despite effort, communication, and personnel changes. The problem is structural, not individual.</span>
+        </div>
+      </div>
+    </div>
+
+       <!-- VERDICT -->
+    <div class="verdict">
+      <p>The structure doesn't change because someone decides to change it.</p>
+      <p style="font-size: 0.85rem; color: var(--green-light); margin-top: 0.4rem;">It changes when the conditions that were maintaining it stop being available — when waiting becomes more costly than moving, when filtered information produces visible failure, when the implicit becomes impossible to ignore.</p>
     </div>
 
     <div class="divider"><span>Work with me</span></div>
@@ -516,7 +545,7 @@
     <!-- SERVICES -->
     <div class="numbered-card numbered-card-green" id="services">
       <div class="numbered-header">
-        <span class="num num-green">02</span>
+        <span class="num">02</span>
         <h3>Work with me</h3>
       </div>
       <div class="numbered-body">
@@ -524,45 +553,44 @@
         <div class="service-item">
           <div class="service-header">
             <h3>Individual Structure</h3>
-            <span class="price-tag">45 min · €150</span>
+            <span class="price-tag"> €250</span>
           </div>
-          <p>We take one situation that isn’t working — a person, a dynamic, or a recurring issue — and make clear what’s actually happening and why.</p>
-          <a href="https://calendly.com/daniela-garofalo1994/30min" class="btn" target="_blank" id="contact">Book a 45-min session</a>
+          <p>A precise reading of how you are positioned inside a situation that isn't working — what signals you are sending and receiving, and where the structure is constraining your movement.</p> 
+          <p>Includes a written report with a precise map of your position in the structure and where the constraint sits.</p>
+          <a href="https://calendly.com/daniela-garofalo1994/30min" class="btn" target="_blank">Book a session</a>
         </div>
-
+        
         <div class="service-item">
           <div class="service-header">
             <h3>Relational Structure</h3>
-            <span class="price-tag">€750 – €1200</span>
+            <span class="price-tag">from €950*</span>
           </div>
-          <p>A structured analysis of how two or more people function together.</p>
-          <p>Includes a written output with key dynamics, tension points and conditions for it to work.</p>
-          <p class="scope-note">Based on number of people and scope. Defined before starting.</p>
-          <a href="https://calendly.com/daniela-garofalo1994/relational-structure" class="btn" target="_blank">Book a 30-min intro call</a>
+          <p>A structured analysis of how two or more people function together — co-founders, partners, key roles.</p>
+          <p>Includes a written report with the key relational dynamics, the points of tension between the people involved, and the structural conditions that would need to change.</p>
+          <p class="scope-note">*Based on number of people and scope. Defined before starting.</p>
+          <a href="https://calendly.com/daniela-garofalo1994/relational-structure" class="btn" target="_blank">Book a session</a>
+        </div>
         </div>
 
       </div>
     </div>
 
-  </div>
-
-  <footer style="
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 2rem 2rem 3rem;
-  border-top: 1px solid #d8d4cc;
-  font-family: 'Inter', -apple-system, sans-serif;
-  text-align: center;
-">
-  <p style="font-size: 0.85rem; color: #444; line-height: 1.8; font-style: italic; margin-bottom: 1.5rem;">
-    I’ve spent years inside organizations, across different roles and levels. I now work on individual and relational structures, making visible what is actually happening beneath the surface of a situation, a working relationship, or a team, so it can be seen and acted on.
-  </p>
-  <span style="display: block; font-size: 0.75rem; color: #666; margin-bottom: 0.2rem;">Daniela Garofalo · VAT IT14675180963</span>
-  <div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 0.5rem;">
-    <a href="mailto:daniela.garofalo1994@gmail.com" style="font-size: 0.75rem; color: #666; text-decoration: none;">daniela.garofalo1994@gmail.com</a>
-    <a href="/privacy.html" style="font-size: 0.75rem; color: #666; text-decoration: none;">Privacy Policy</a>
-  </div>
-</footer>
+  <footer id="contact">
+    <p class="about">10+ years inside organizations — trained in behavioral observation and relational dynamics across corporate, consulting, and entrepreneurial contexts.</p>
+    <div class="meta">
+      <div class="meta-left">
+        <span>Daniela Garofalo</span>
+        <span class="vat">VAT IT14675180963</span>
+      </div>
+      <div class="meta-right">
+        <a href="mailto:daniela.garofalo1994@gmail.com">daniela.garofalo1994@gmail.com</a>
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
+
+
+
