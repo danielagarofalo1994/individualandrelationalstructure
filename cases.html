@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cases — Daniela Garofalo</title>
+  <meta name="description" content="Four cases: productive stasis, structural absence, filtered signals, ownership shifting. When the problem is not the people — it is the structure they are operating inside.">
+  <meta name="keywords" content="team not performing, project not moving despite effort, communication breakdown at work, no accountability in team, information not reaching leadership, team dynamics not working, capable person not delivering, decisions keep getting reopened, team stalling despite alignment">
+  <link rel="canonical" href="https://www.danielagarofalo.work/cases">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is my project not moving despite effort and communication?","acceptedAnswer":{"@type":"Answer","text":"The project isn't stalling — it is running perfectly, just without an end."}},{"@type":"Question","name":"Why does one person only contribute when the other leads?","acceptedAnswer":{"@type":"Answer","text":"Her way of moving consistently removed the moment in which he would have had to create momentum himself."}},{"@type":"Question","name":"Why does my team filter information before it reaches me?","acceptedAnswer":{"@type":"Answer","text":"The team communicates perfectly — they have just learned to communicate only what the structure can receive."}},{"@type":"Question","name":"Why does accountability disappear when something goes wrong?","acceptedAnswer":{"@type":"Answer","text":"Responsibility circulated perfectly. Which is why nobody ever held it."}}]}
+  </script>
+
+  <style>
+    :root {
+      --green: #22332b;
+      --green-mid: #2d4a3a;
+      --green-light: #c8ddd2;
+      --green-dark: #1a2821;
+      --green-border: #6a9a7e;
+      --bg: #f2f2f0;
+      --white: #ffffff;
+      --text: #1a1c1e;
+      --muted: #6b7280;
+      --border: #c8c8c4;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      background: rgba(242,242,240,0.98);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(8px);
+    }
+
+    nav a { font-size: 0.75rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    nav a:hover { color: var(--text); }
+
+    /* MOBILE BAR */
+    .mobile-bar {
+      display: none;
+      position: sticky;
+      top: 50px;
+      z-index: 100;
+      background: rgba(242,242,240,0.98);
+      border-bottom: 1px solid var(--border);
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+      backdrop-filter: blur(8px);
+    }
+    .mobile-bar::-webkit-scrollbar { display: none; }
+    .mobile-bar a {
+      display: inline-block;
+      padding: 0.7rem 1.2rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .mobile-bar a.active, .mobile-bar a:hover { color: var(--green); border-bottom-color: var(--green); }
+
+    /* LAYOUT */
+    .layout {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      max-width: 1020px;
+      margin: 0 auto;
+      padding-top: 50px;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      position: sticky;
+      top: 50px;
+      height: calc(100vh - 50px);
+      padding: 3rem 1.5rem 2rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .sidebar-label {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+
+    .sidebar-list a {
+      display: block;
+      padding: 0.5rem 0.7rem;
+      font-size: 0.76rem;
+      font-weight: 400;
+      color: var(--muted);
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      transition: all 0.2s;
+      line-height: 1.4;
+    }
+
+    .sidebar-list a:hover, .sidebar-list a.active {
+      color: var(--green);
+      border-left-color: var(--green);
+    }
+
+    .sidebar-list .num {
+      font-size: 0.6rem;
+      color: var(--border);
+      display: block;
+      margin-bottom: 0.1rem;
+    }
+
+    /* MAIN */
+    .main {
+      padding: 4rem 4rem 6rem;
+      max-width: 660px;
+    }
+
+    /* HEADER */
+    .site-header {
+      margin-bottom: 4rem;
+    }
+
+    .site-label {
+      font-size: 0.63rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 1.2rem;
+    }
+
+    .site-header h1 {
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      max-width: 28ch;
+    }
+
+    .site-header .tagline {
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 46ch;
+    }
+
+    /* RECOGNITION LIST */
+    .recognition-list {
+      margin-bottom: 5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .recognition-item {
+      display: block;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.5;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .recognition-item:hover {
+      color: var(--green);
+    }
+
+    /* CASE */
+    .case {
+      margin-bottom: 15vh;
+    }
+
+    .case-intro {
+      margin-bottom: 3rem;
+    }
+
+    .case-intro h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      margin-bottom: 0;
+    }
+
+    /* BIG QUOTE */
+    .big-quote {
+      margin: 2.5rem 0;
+    }
+
+    .big-quote p {
+      font-family: 'Lora', Georgia, serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      line-height: 1.6;
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    /* BODY TEXT */
+    .case-body {
+      margin-top: 2.5rem;
+    }
+
+    .case-body p {
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+    }
+
+    .case-body p:last-child { margin-bottom: 0; }
+
+    .case-body strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--green);
+      margin: 1.8rem 0;
+      line-height: 1.5;
+    }
+
+    /* SYMPTOM ASIDE */
+    .symptom-aside {
+      border-left: 2px solid var(--border);
+      padding-left: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .symptom-aside p {
+      font-family: 'Lora', Georgia, serif;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* CASE FOOTER */
+    .case-footer {
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      margin-top: 2.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.3rem;
+      background: var(--green);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: var(--green-dark); }
+
+    /* VERDICT */
+    .verdict {
+      background: var(--green-dark);
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .verdict p { font-size: 0.95rem; font-weight: 400; color: var(--white); line-height: 1.5; }
+    .verdict p.sub { font-size: 0.8rem; color: var(--green-light); margin-top: 0.3rem; font-weight: 300; }
+
+    .btn-white {
+      display: inline-block;
+      padding: 0.7rem 1.5rem;
+      background: var(--white);
+      color: var(--green-dark);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: opacity 0.2s;
+    }
+    .btn-white:hover { opacity: 0.85; }
+
+    footer {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem 3rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    footer p { font-size: 0.73rem; color: var(--muted); }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 768px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .mobile-bar { display: block; }
+      .main { padding: 2.5rem 1.5rem 5rem; max-width: 100%; }
+      .verdict { flex-direction: column; }
+      footer { flex-direction: column; gap: 0.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/">← danielagarofalo.work</a>
+    <a href="/#services">Book a session</a>
+  </nav>
+
+  <div class="mobile-bar">
+    <a href="#case-01">Productive Stasis</a>
+    <a href="#case-02">Structural Absence</a>
+    <a href="#case-03">Filtered Signals</a>
+    <a href="#case-04">Ownership Shifting</a>
+  </div>
+
+  <div class="layout">
+
+    <aside class="sidebar">
+      <p class="sidebar-label">Four cases</p>
+      <ul class="sidebar-list">
+        <li><a href="#case-01"><span class="num">01</span>Productive Stasis</a></li>
+        <li><a href="#case-02"><span class="num">02</span>Structural Absence</a></li>
+        <li><a href="#case-03"><span class="num">03</span>Filtered Signals</a></li>
+        <li><a href="#case-04"><span class="num">04</span>Ownership Shifting</a></li>
+      </ul>
+    </aside>
+
+    <main class="main">
+
+      <div class="site-header">
+        <p class="site-label">Four cases</p>
+        <h1>You are not managing people. You are managing the invisible architecture that stops them from moving.</h1>
+        <p class="tagline">Four cases. Each one looks like a people problem. None of them is.</p>
+      </div>
+
+      <!-- RECOGNITION LIST -->
+      <div class="recognition-list">
+        <a href="#case-01" class="recognition-item">"This project has been going on forever. It never lands."</a>
+        <a href="#case-02" class="recognition-item">"She's basically doing everything alone."</a>
+        <a href="#case-03" class="recognition-item">"Nobody ever tells me the important things."</a>
+        <a href="#case-04" class="recognition-item">"Things keep happening and nobody knows why."</a>
+      </div>
+
+      <!-- CASE 01 -->
+      <div class="case" id="case-01">
+        <div class="case-intro">
+          <h2>Productive Stasis</h2>
+        </div>
+
+        <div class="big-quote">
+          <p>"They're both working.<br>There are calls, updates, slides.<br>The project is not moving."</p>
+        </div>
+
+        <div class="symptom-aside">
+          <p>"I put two solid people on this. They show up, they communicate, they produce material. Three months in, we're in the same place."</p>
+        </div>
+
+        <div class="case-body">
+          <p>He had checked everything. The right people, the right setup, the right level of autonomy. Nothing was wrong. That was exactly what he couldn't explain.</p>
+
+          <strong>The project wasn't stalling. It was running perfectly — just without an end.</strong>
+
+          <p>Every exchange generated the next one. Every update reopened the process instead of narrowing it. Every draft became a conversation. Neither of them resisted the work — the collaboration depended on both of them staying fully engaged. Nothing inside the collaboration forced either of them to take the final position. The structure only produced continuation. Never commitment.</p>
+        </div>
+
+        <div class="case-footer">
+          <a href="https://calendly.com/daniela-garofalo1994/relational-structure" class="btn" target="_blank">Book a session</a>
+        </div>
+      </div>
+
+      <!-- CASE 02 -->
+      <div class="case" id="case-02">
+        <div class="case-intro">
+          <h2>Structural Absence</h2>
+        </div>
+
+        <div class="big-quote">
+          <p>"They work well together when she leads.<br>When she steps back,<br>he disappears."</p>
+        </div>
+
+        <div class="symptom-aside">
+          <p>"She's fast, she frames everything before the meeting starts. He's capable but only shows up fully once she's set the ground. I need two people who can build together, not one who leads and one who follows."</p>
+        </div>
+
+        <div class="case-body">
+          <p>He wasn't disengaged. He wasn't waiting to be told what to do. He was waiting for the specific moment when his contribution would be necessary — and that moment never arrived.</p>
+
+          <strong>Her way of moving consistently removed the moment in which he would have had to create momentum himself.</strong>
+
+          <p>She wasn't dominating. She was doing what she did well — framing fast, removing ambiguity, creating the conditions for the work to start. And in doing it precisely, she made his full participation structurally unnecessary. The asymmetry wasn't in their capabilities. It was in the sequence. She always moved first. The structure never required him to.</p>
+        </div>
+
+        <div class="case-footer">
+          <a href="https://calendly.com/daniela-garofalo1994/relational-structure" class="btn" target="_blank">Book a session</a>
+        </div>
+      </div>
+
+      <!-- CASE 03 -->
+      <div class="case" id="case-03">
+        <div class="case-intro">
+          <h2>Filtered Signals</h2>
+        </div>
+
+        <div class="big-quote">
+          <p>"I always find out too late.<br>By the time I know there's a problem,<br>it's already a crisis."</p>
+        </div>
+
+        <div class="symptom-aside">
+          <p>"I keep asking. They give me exactly what I need to hear. Three months later, I find out the situation was completely different."</p>
+        </div>
+
+        <div class="case-body">
+          <p>She had done everything right. Open door, direct questions, explicit asks for the real picture. The answers were always fine. The situation never was.</p>
+
+          <strong>She thought the problem was that her team didn't communicate. The actual problem was that they communicated perfectly — they had just learned to communicate only what the structure could receive.</strong>
+
+          <p>The point of failure wasn't the team's silence. It was the specific way she reacted when reality didn't match her map — interrupting, reframing, resolving before the other person had finished — and how the system had reorganized itself to avoid putting her in that position again.</p>
+        </div>
+
+        <div class="case-footer">
+          <a href="https://calendly.com/daniela-garofalo1994/30min" class="btn" target="_blank">Book a session</a>
+        </div>
+      </div>
+
+      <!-- CASE 04 -->
+      <div class="case" id="case-04">
+        <div class="case-intro">
+          <h2>Ownership Shifting</h2>
+        </div>
+
+        <div class="big-quote">
+          <p>"Something went wrong.<br>Everyone was involved.<br>Nobody owned it."</p>
+        </div>
+
+        <div class="symptom-aside">
+          <p>"I can't find where the decision lived. They all worked on it, they all knew what was happening. But when I ask who was responsible, I get four different answers and none of them is 'me'."</p>
+        </div>
+
+        <div class="case-body">
+          <p>He had been there for all of it. So had everyone else. That was the problem he couldn't name.</p>
+
+          <p>Nobody was lying. Nobody was evading. The manager had explained the rationale so completely that the outcome no longer felt like a decision she owned. The senior had been fully invested — until the moment it failed, when her investment disappeared and the context took the blame. The juniors had executed exactly what they were given, which meant they had never made a decision that could be traced back to them.</p>
+
+          <strong>Responsibility circulated perfectly. Which is why nobody ever held it.</strong>
+        </div>
+
+        <div class="case-footer">
+          <a href="https://calendly.com/daniela-garofalo1994/relational-structure" class="btn" target="_blank">Book a session</a>
+        </div>
+      </div>
+
+      <!-- VERDICT -->
+      <div class="verdict">
+        <div>
+          <p>Most teams try to solve these behaviorally.</p>
+          <p class="sub">That's usually why the pattern survives.</p>
+        </div>
+        <a href="https://calendly.com/daniela-garofalo1994/30min" class="btn-white" target="_blank">Book a session</a>
+      </div>
+
+    </main>
+  </div>
+
+  <footer>
+    <p>Daniela Garofalo · <a href="/">danielagarofalo.work</a></p>
+    <p><a href="/privacy.html">Privacy Policy</a></p>
+  </footer>
+
+  <script>
+    const cases = document.querySelectorAll('.case');
+    const sidebarLinks = document.querySelectorAll('.sidebar-list a');
+    const mobileLinks = document.querySelectorAll('.mobile-bar a');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          sidebarLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
+          mobileLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
+        }
+      });
+    }, { rootMargin: '-15% 0px -75% 0px' });
+
+    cases.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>
