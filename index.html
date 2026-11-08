@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Daniela Garofalo · Consulenza organizzativa e counseling</title>
+<meta name="description" content="Consulenza organizzativa e counseling per aziende e persone: costruzione della funzione HR, riorganizzazione aziendale, dinamiche di team, counseling e meditazione guidata.">
+<link rel="canonical" href="https://www.danielagarofalo.work/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Daniela Garofalo · Consulenza organizzativa e counseling">
+<meta property="og:description" content="Trovo dove ti blocchi, verso dove potresti andare, e il punto da cui intervenire.">
+<meta property="og:url" content="https://www.danielagarofalo.work/">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#FFFDF9">
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}html{scroll-behavior:smooth}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: margini laterali ampi, servizi come due schede colorate, contatti su fascia cobalto con evidenziatore giallo come unico gesto forte */
+:root{
+  --bg:#FFFDF9; --ink:#1B1F3B; --muted:#565B78; --line:#E4E2EE;
+  --accent:#3047D1; --marker:#FFD54A; --card-a:#F4F3F0; --card-b:#F4F3F0;
+  --band:#F4F3F0; --on-band:#1B1F3B; --on-band-muted:#565B78;
+  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --gutter:clamp(24px,6vw,88px);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#14162A; --ink:#EEF0FA; --muted:#A9AECB; --line:#2A2E4A;
+  --accent:#8C9CFF; --marker:#B8901C; --card-a:#1C1F35; --card-b:#1C1F35;
+  --band:#1C1F35; --on-band:#EEF0FA; --on-band-muted:#A9AECB; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#14162A; --ink:#EEF0FA; --muted:#A9AECB; --line:#2A2E4A;
+  --accent:#8C9CFF; --marker:#B8901C; --card-a:#1C1F35; --card-b:#1C1F35;
+  --band:#1C1F35; --on-band:#EEF0FA; --on-band-muted:#A9AECB; color-scheme:dark}
+
+html:not([data-lang]) [lang="en"], html[data-lang="it"] [lang="en"], html[data-lang="en"] [lang="it"]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(var(--gutter),env(safe-area-inset-left,0px));padding-right:max(var(--gutter),env(safe-area-inset-right,0px))}
+a{color:var(--accent)}
+h1,h2,h3{font-family:var(--display);font-weight:700;text-wrap:balance;margin:0;line-height:1.08;letter-spacing:-.02em}
+p{margin:0}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+
+/* header */
+header .wrap{display:flex;justify-content:space-between;align-items:center;padding-block:26px;gap:16px}
+.mark{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-.01em}
+nav{display:flex;gap:24px;align-items:center;font-size:14.5px}
+nav a.l{color:var(--muted);text-decoration:none;font-weight:500}
+nav a.l:hover{color:var(--ink)}
+.hbtn{font-size:14px;font-weight:600;text-decoration:none;color:#fff;background:var(--accent);padding:8px 16px;border-radius:999px;white-space:nowrap}
+.hbtn:hover{filter:brightness(1.1)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{all:unset;cursor:pointer;font-size:12px;font-weight:600;letter-spacing:.08em;padding:6px 11px;color:var(--muted)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+a:focus-visible,.lang button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.mark{white-space:nowrap}
+@media (max-width:680px){nav a.l{display:none} nav{gap:10px} .mark{font-size:17px} .hbtn{padding:7px 12px;font-size:13px}}
+
+/* hero */
+.hero .wrap{padding-block:56px 88px;display:grid;gap:30px}
+.hero h1{font-size:clamp(38px,6.2vw,76px);max-width:18ch;font-weight:500}
+.hero h1 em{font-style:normal;font-weight:700;background:linear-gradient(transparent 58%,var(--marker) 58%, var(--marker) 92%,transparent 92%);padding:0 .08em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hero .hook{font-size:clamp(18px,2vw,21px);color:var(--muted);max-width:40ch}
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;text-decoration:none;padding:15px 26px;border-radius:999px;font-weight:600;font-size:16px;width:max-content}
+.cta:hover{filter:brightness(1.1)}
+
+/* servizi */
+.services .wrap{padding-block:24px 40px;display:grid;gap:28px}
+.sec-head h2{font-size:clamp(34px,5vw,56px)}
+.svc{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:40px;padding:clamp(28px,4vw,52px);border-radius:28px;background:var(--card-a)}
+.svc + .svc{background:var(--card-b)}
+.svc .side{display:grid;gap:10px;align-content:start}
+.svc h3{font-size:clamp(28px,3.2vw,40px)}
+.tag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.svc .main{min-width:0}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:24px}
+.list li{display:grid;gap:4px;padding-left:22px;position:relative}
+.list li::before{content:"";position:absolute;left:0;top:.5em;width:7px;height:7px;border-radius:50%;background:var(--accent);top:.65em}
+.list b{font-weight:600;font-size:18px}
+.list > li > span{color:var(--muted);font-size:16px}
+@media (max-width:760px){.svc{grid-template-columns:1fr;gap:22px;border-radius:22px}}
+
+/* come si comincia */
+.how .wrap{padding-block:88px;display:grid;gap:40px}
+.how .sec-head{display:grid;gap:12px}
+.how h2{font-size:clamp(30px,4.2vw,46px);max-width:22ch}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px;counter-reset:s}
+.steps li{display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:12px;align-content:start;counter-increment:s}
+.steps{row-gap:12px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);color:var(--accent);font-family:var(--display);font-weight:700;font-size:20px}
+.steps h3{font-size:23px;letter-spacing:-.01em}
+.steps p{color:var(--muted);font-size:16px}
+@media (max-width:760px){.steps{grid-template-columns:1fr;row-gap:12px}.steps li + li{margin-top:22px}}
+
+/* contatti */
+.contact .wrap{padding-block:0 72px}
+.contact .inner{background:var(--band);color:var(--on-band);border-radius:28px;padding:clamp(32px,6vw,72px);display:grid;gap:22px}
+.contact .eyebrow{color:var(--accent)}
+.contact h2{font-size:clamp(32px,5vw,58px);max-width:18ch}
+.contact p{color:var(--on-band-muted);max-width:50ch}
+footer .wrap{padding-block:28px 40px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13.5px;color:var(--muted)}
+footer a{color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){.cta,.hbtn{transition:filter .2s, transform .2s}.cta:hover{transform:translateY(-2px)}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mark">Daniela Garofalo</div>
+    <nav>
+      <a class="l" href="#servizi"><span lang="it">Servizi</span><span lang="en">Services</span></a>
+      <a class="l" href="#contatti"><span lang="it">Contatti</span><span lang="en">Contact</span></a>
+      <a class="hbtn" href="mailto:daniela.garofalo1994@gmail.com"><span lang="it">Scrivimi</span><span lang="en">Write to me</span></a>
+      <div class="lang" role="group" aria-label="Lingua / Language">
+        <button type="button" id="b-it" data-l="it" aria-pressed="true">IT</button>
+        <button type="button" id="b-en" data-l="en" aria-pressed="false">EN</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span lang="it">Consulenza organizzativa e counseling</span><span lang="en">Organisational consulting and counselling</span></span>
+    <h1><span lang="it">Trovo dove ti blocchi, verso dove potresti andare, e <em>il punto da cui intervenire.</em></span><span lang="en">I find where you're stuck, where you could go, and <em>the point to act from.</em></span></h1>
+    <p class="hook"><span lang="it">Il sistema funziona perfettamente. Per questo sei bloccato.</span><span lang="en">The system is working perfectly. That's why you're stuck.</span></p>
+    <a class="cta" href="mailto:daniela.garofalo1994@gmail.com"><span lang="it">Scrivimi</span><span lang="en">Write to me</span> →</a>
+  </div>
+</section>
+
+<section class="services" id="servizi">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><span lang="it">Servizi</span><span lang="en">Services</span></h2>
+    </div>
+
+    <div class="svc">
+      <div class="side">
+        <span class="tag"><span lang="it">Aziende</span><span lang="en">Companies</span></span>
+        <h3><span lang="it">Per l'azienda</span><span lang="en">For your business</span></h3>
+      </div>
+      <div class="main">
+        <ul class="list">
+          <li><b><span lang="it">Costruzione della funzione HR</span><span lang="en">Building the HR function</span></b><span><span lang="it">Costruisco o riorganizzo i processi HR, dall'onboarding alla performance, dalla formazione alla revisione retributiva. Ruoli, criteri e responsabilità diventano chiari.</span><span lang="en">I build or reorganise HR processes, from onboarding to performance, from training to pay review. Roles, criteria and responsibilities become clear.</span></span></li>
+          <li><b><span lang="it">Riorganizzazione aziendale</span><span lang="en">Company reorganisation</span></b><span><span lang="it">Quando l'azienda cresce o si inceppa, ridisegno ruoli, responsabilità e flussi di lavoro: chi decide, chi fa cosa e come passa il lavoro.</span><span lang="en">When the company grows or gets stuck, I redesign roles, responsibilities and workflows: who decides, who does what and how work moves.</span></span></li>
+          <li><b><span lang="it">Dinamiche di team</span><span lang="en">Team dynamics</span></b><span><span lang="it">Lavoro sulle dinamiche reali dei gruppi con incontri e formazione. Rendo visibile cosa ostacola il lavoro e ti dico da dove intervenire.</span><span lang="en">I work on groups' real dynamics through sessions and training. I make visible what gets in the way of the work and tell you where to step in.</span></span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="svc">
+      <div class="side">
+        <span class="tag"><span lang="it">Persone</span><span lang="en">Individuals</span></span>
+        <h3><span lang="it">Per te</span><span lang="en">For you</span></h3>
+      </div>
+      <div class="main">
+        <ul class="list">
+          <li><b>Counseling</b><span><span lang="it">Percorsi individuali per affrontare una decisione importante: mettere ordine nella confusione, capire cosa conta e arrivare a una scelta consapevole.</span><span lang="en">One-to-one sessions to face an important decision: sort out the confusion, understand what matters and reach a conscious choice.</span></span></li>
+          <li><b><span lang="it">Meditazione tramite visualizzazione guidata</span><span lang="en">Guided visualisation meditation</span></b><span><span lang="it">Sessioni individuali o di gruppo con visualizzazioni guidate, per rallentare, gestire lo stress e ritrovare chiarezza.</span><span lang="en">One-to-one or group sessions with guided visualisations, to slow down, manage stress and regain clarity.</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow"><span lang="it">Come si comincia</span><span lang="en">How we start</span></span>
+      <h2><span lang="it">Dalla prima conversazione a cosa fare</span><span lang="en">From first conversation to what to do</span></h2>
+    </div>
+    <ol class="steps">
+      <li><h3><span lang="it">Una conversazione</span><span lang="en">A conversation</span></h3><p><span lang="it">Gratuita e informale. Mi racconti cosa sta succedendo e valutiamo insieme se posso aiutarti.</span><span lang="en">Free and informal. You tell me what's happening and we work out together whether I can help.</span></p></li>
+      <li><h3><span lang="it">Una proposta su misura</span><span lang="en">A tailored proposal</span></h3><p><span lang="it">Definiamo obiettivi, modalità, durata e costo prima di iniziare, così sai da subito cosa aspettarti.</span><span lang="en">We agree on objectives, approach, duration and cost before starting, so you know from the outset what to expect.</span></p></li>
+      <li><h3><span lang="it">Un percorso con una direzione</span><span lang="en">A process with direction</span></h3><p><span lang="it">Rendiamo chiara la situazione e individuiamo cosa fare, perché tu possa andare avanti in autonomia.</span><span lang="en">We make the situation clear and work out what to do, so you can move forward on your own.</span></p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="contact" id="contatti">
+  <div class="wrap"><div class="inner">
+    <span class="eyebrow"><span lang="it">Contatti</span><span lang="en">Contact</span></span>
+    <h2><span lang="it">Parliamo di quello che ti sta bloccando.</span><span lang="en">Let's talk about what's keeping you stuck.</span></h2>
+    <p><span lang="it">La prima conversazione è gratuita e senza impegno. Raccontami la situazione e vediamo da dove cominciare.</span><span lang="en">The first conversation is free, with no commitment. Tell me what's going on and we'll work out where to begin.</span></p>
+    <a class="cta" href="mailto:daniela.garofalo1994@gmail.com"><span lang="it">Scrivimi</span><span lang="en">Write to me</span> →</a>
+  </div></div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Daniela Garofalo · <span lang="it">P. IVA</span><span lang="en">VAT</span> 14675180963</span>
+    <span style="display:flex;gap:18px"><a href="https://www.linkedin.com/in/daniela-garofalo1994/" target="_blank" rel="noopener">LinkedIn</a><a href="privacy.html">Privacy</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, saved=null;
+  try{saved=localStorage.getItem('dg-lang')}catch(e){}
+  function set(l){
+    root.setAttribute('data-lang',l); root.lang=l;
+    document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l?'true':'false')});
+    try{localStorage.setItem('dg-lang',l)}catch(e){}
+  }
+  set(saved==='en'?'en':'it');
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){set(b.dataset.l)})});
+})();
+</script>
+</body>
+</html>
